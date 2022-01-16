@@ -1,19 +1,28 @@
-import model.QuestionsAboutImportant;
+package tests;
+
+import jdk.jfr.Description;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import page.MainPage;
+import page.QuestionsPage;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.actions;
 
 
 public class SelenideTest extends BaseTest {
 
-    QuestionsAboutImportant questionsAboutImportant = new QuestionsAboutImportant();
+    QuestionsPage questionsPage = new QuestionsPage();
+    MainPage mainPage = new MainPage();
 
     //  Сколько это стоит? И как оплатить?
     @Test
+    @Description("Проверка соответствия текста в поле: Сколько это стоит? И как оплатить?")
+    @DisplayName("Сколько это стоит? И как оплатить?")
     public void howMuchDoesItCostTest() {
-        open("https://qa-scooter.praktikum-services.ru/");
-        questionsAboutImportant.submitCookie();
+        mainPage.openMainPage()
+                .submitCookie();
         actions().moveToElement($x("//div[@id='accordion__heading-0']")).click().perform();
         $x("//div[@id='accordion__panel-0']").shouldHave(text("Сутки — 400 рублей. Оплата курьеру — наличными или картой."));
         $x("//div[@id='accordion__panel-0']").parent().shouldHave(text("Сколько это стоит? И как оплатить?"));
@@ -21,10 +30,11 @@ public class SelenideTest extends BaseTest {
 
     //    Хочу сразу несколько самокатов! Так можно?
     @Test
+    @Description("Проверка соответствия текста в поле: Хочу сразу несколько самокатов! Так можно?")
+    @DisplayName("Хочу сразу несколько самокатов! Так можно?")
     public void wantSeveralScootersAtOnceTest() {
-        open("https://qa-scooter.praktikum-services.ru/");
-//        $x("//button[@id='rcc-confirm-button']").click();
-        questionsAboutImportant.submitCookie();
+        mainPage.openMainPage()
+                .submitCookie();
 
         actions().moveToElement($x("//div[@id='accordion__heading-1']")).click().perform();
         $x("//div[@id='accordion__panel-1']")
@@ -34,10 +44,11 @@ public class SelenideTest extends BaseTest {
 
     //  Как рассчитывается время аренды?
     @Test
+    @Description("Проверка соответствия текста в поле: Как рассчитывается время аренды?")
+    @DisplayName("Как рассчитывается время аренды?")
     public void howIsTheRentalTimeCalculatedTest() {
-        open("https://qa-scooter.praktikum-services.ru/");
-//        $x("//button[@id='rcc-confirm-button']").click();
-        questionsAboutImportant.submitCookie();
+        mainPage.openMainPage()
+                .submitCookie();
 
         actions().moveToElement($x("//div[@id='accordion__heading-2']")).click().perform();
         $x("//div[@id='accordion__panel-2']")
@@ -48,10 +59,11 @@ public class SelenideTest extends BaseTest {
 
     //    Можно ли заказать самокат прямо на сегодня?
     @Test
+    @Description("Проверка соответствия текста в поле: Можно ли заказать самокат прямо на сегодня?")
+    @DisplayName("Можно ли заказать самокат прямо на сегодня?")
     public void isItPossibleToOrderScooterRightForTodayTest() {
-        open("https://qa-scooter.praktikum-services.ru/");
-//        $x("//button[@id='rcc-confirm-button']").click();
-        questionsAboutImportant.submitCookie();
+        mainPage.openMainPage()
+                .submitCookie();
 
         actions().moveToElement($x("//div[@id='accordion__heading-3']")).click().perform();
         $x("//div[@id='accordion__panel-3']")
@@ -60,10 +72,11 @@ public class SelenideTest extends BaseTest {
 
     //    Можно ли продлить заказ или вернуть самокат раньше?
     @Test
+    @Description("Проверка соответствия текста в поле: Можно ли продлить заказ или вернуть самокат раньше?")
+    @DisplayName("Можно ли продлить заказ или вернуть самокат раньше?")
     public void isItPossibleToExtendTheOrderTest() {
-        open("https://qa-scooter.praktikum-services.ru/");
-//        $x("//button[@id='rcc-confirm-button']").click();
-        questionsAboutImportant.submitCookie();
+        mainPage.openMainPage()
+                .submitCookie();
 
         actions().moveToElement($x("//div[@id='accordion__heading-4']")).click().perform();
         $x("//div[@id='accordion__panel-4']")
@@ -73,10 +86,11 @@ public class SelenideTest extends BaseTest {
 
     //    Вы привозите зарядку вместе с самокатом?
     @Test
+    @Description("Проверка соответствия текста в поле: Вы привозите зарядку вместе с самокатом?")
+    @DisplayName("Вы привозите зарядку вместе с самокатом?")
     public void doYouBringChargingAlongWithTheScooterTest() {
-        open("https://qa-scooter.praktikum-services.ru/");
-//        $x("//button[@id='rcc-confirm-button']").click();
-        questionsAboutImportant.submitCookie();
+        mainPage.openMainPage()
+                .submitCookie();
 
         actions().moveToElement($x("//div[@id='accordion__heading-5']")).click().perform();
         $x("//div[@id='accordion__panel-5']")
@@ -87,10 +101,11 @@ public class SelenideTest extends BaseTest {
 
     //    Можно ли отменить заказ?
     @Test
+    @Description("Проверка соответствия текста в поле: Можно ли отменить заказ?")
+    @DisplayName("Можно ли отменить заказ?")
     public void isItPossibleToCancelTheOrderTest() {
-        open("https://qa-scooter.praktikum-services.ru/");
-//        $x("//button[@id='rcc-confirm-button']").click();
-        questionsAboutImportant.submitCookie();
+        mainPage.openMainPage()
+                .submitCookie();
 
         actions().moveToElement($x("//div[@id='accordion__heading-6']")).click().perform();
         $x("//div[@id='accordion__panel-6']")
@@ -100,14 +115,14 @@ public class SelenideTest extends BaseTest {
 
     //    Я живу за МКАДом, привезёте?
     @Test
+    @Description("Проверка соответствия текста в поле: Я живу за МКАДом, привезёте?")
+    @DisplayName("Я живу за МКАДом, привезёте?")
     public void willYouBringMeTest() {
-        open("https://qa-scooter.praktikum-services.ru/");
-//        $x("//button[@id='rcc-confirm-button']").click();
-        questionsAboutImportant.submitCookie();
+        mainPage.openMainPage()
+                .submitCookie();
 
         actions().moveToElement($x("//div[@id='accordion__heading-7']")).click().perform();
         $x("//div[@id='accordion__panel-7']")
                 .shouldHave(text("Да, обязательно. Всем самокатов! И Москве, и Московской области."));
     }
-
 }
